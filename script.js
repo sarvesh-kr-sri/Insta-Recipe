@@ -99,7 +99,7 @@ async function fetchfavMeals(){
 
 function addMealTofav(mealData){
     const favmeal = document.createElement('li');
-   
+    
     favmeal.innerHTML = `<img src="${mealData.strMealThumb}" alt="${mealData.strMeal}"><span>${mealData.strMeal}</span><button class="clear"><i class="far fa-times-circle"></i></button>
     </li>`;
 
@@ -117,12 +117,23 @@ function addMealTofav(mealData){
 function showMealInfo(mealData){
     mealInfoEl.innerHTML= ` `;
     const mealEl = document.createElement('div');
-    
+    const ingredients= [];
+    for(let i=1;i<=20;i++){
+        if(mealData['strIngredient'+i]){
+            ingredients.push(`${mealData['strIngredient'+i]} - ${mealData['strMeasure'+i]}`)
+        }else{
+            break;
+        }
+    }
     mealEl.innerHTML = `
                 <h1>${mealData.strMeal}</h1> 
                 <img src="${mealData.strMealThumb}" alt="">
 
                 <p>${mealData.strInstructions}</p>
+                <h3>Ingredients</h3>
+                <ul>
+                    ${ingredients.map(ing => `<li>${ing}`).join('')}
+                </ul>
                 `
 
     mealInfoEl.appendChild(mealEl)
