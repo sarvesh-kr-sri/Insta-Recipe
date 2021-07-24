@@ -213,9 +213,13 @@ header button{
 }
 
 
-@media only screen and (max-width: 600px){
+@media only screen and (max-width: 500px){
     .mobile-container{
         width: 370px;
+    }
+    header input{
+        padding: 0.5rem 0.4rem;
+        width: 170px;
     }
     .meal-info{
         max-width: 370px;
@@ -226,12 +230,13 @@ header button{
     }
     
 }
-@media only screen and (max-width: 450px){
+@media only screen and (max-width: 350px){
     .mobile-container{
         width: 307px;
     }
     header input{
         padding: 0.5rem 0.6rem;
+        width: 150px;
     }
     .meal-info{
         max-width: 307px;
